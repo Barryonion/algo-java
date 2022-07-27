@@ -16,22 +16,22 @@ public class IPAddressParser {
         //111.12.12.1   合法
         //null 或者 ""   非法
         IPAddressParser parser = new IPAddressParser();
-//        boolean valid = parser.isValid("abc.123.123.234");
-//        System.out.println("expect abc.123.123.234 is false\n actual result is " + valid);
-//        boolean valid1 = parser.isValid("123.134.132.22.242");
-//        System.out.println("expect 123.134.132.22.242 is false\n actual result is " + valid1);
-//        boolean valid2 = parser.isValid("257.123.12.15");
-//        System.out.println("expect 257.123.12.15 is false\n actual result is " + valid2);
-//        boolean valid3 = parser.isValid(" 123 .12.11.1");
-//        System.out.println("expect  123 .12.11.1 is true\n actual result is " + valid3);
-//        boolean valid4 = parser.isValid("1 2 3.12.11.1");
-//        System.out.println("expect 1 2 3.12.11.1 is false\n actual result is " + valid4);
-//        boolean valid5 = parser.isValid("111.12.12.1");
-//        System.out.println("expect 111.12.12.1 is true\n actual result is " + valid5);
-//        boolean valid6 = parser.isValid(null);
-//        System.out.println("expect null is false\n actual result is " + valid6);
-//        boolean valid7 = parser.isValid("");
-//        System.out.println("expect  is false\n actual result is " + valid7);
+        boolean valid = parser.isValid("abc.123.123.234");
+        System.out.println("expect abc.123.123.234 is false\n actual result is " + valid);
+        boolean valid1 = parser.isValid("123.134.132.22.242");
+        System.out.println("expect 123.134.132.22.242 is false\n actual result is " + valid1);
+        boolean valid2 = parser.isValid("257.123.12.15");
+        System.out.println("expect 257.123.12.15 is false\n actual result is " + valid2);
+        boolean valid3 = parser.isValid(" 123 .12.11.1");
+        System.out.println("expect  123 .12.11.1 is true\n actual result is " + valid3);
+        boolean valid4 = parser.isValid("1 2 3.12.11.1");
+        System.out.println("expect 1 2 3.12.11.1 is false\n actual result is " + valid4);
+        boolean valid5 = parser.isValid("111.12.12.1");
+        System.out.println("expect 111.12.12.1 is true\n actual result is " + valid5);
+        boolean valid6 = parser.isValid(null);
+        System.out.println("expect null is false\n actual result is " + valid6);
+        boolean valid7 = parser.isValid("");
+        System.out.println("expect  is false\n actual result is " + valid7);
         boolean valid8 = parser.check("021.3.02.34");
         System.out.println("expect  021.3.02.34 is false\n actual result is " + valid8);
         boolean valid9 = parser.check("0.2.0.33");
