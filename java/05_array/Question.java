@@ -20,16 +20,16 @@ public class Question {
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
         // 枚举 a
         for (int first = 0; first < n; ++first) {
-            // 需要和上一次枚举的数不相同
+            // array可能存在重复元素，需要和上一次枚举的数不相同
             if (first > 0 && array[first] == array[first - 1]) {
                 continue;
             }
             // c 对应的指针初始指向数组的最右端
             int third = n - 1;
             int target = sum - array[first];
-            // 枚举 b
+            // 枚举 b （变成求两数之和）
             for (int second = first + 1; second < n; ++second) {
-                // 需要和上一次枚举的数不相同
+                // 去重，需要和上一次枚举的数不相同
                 if (second > first + 1 && array[second] == array[second - 1]) {
                     continue;
                 }
