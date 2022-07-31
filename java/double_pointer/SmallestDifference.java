@@ -27,16 +27,14 @@ public class SmallestDifference {
         long min = Long.MAX_VALUE;
         //计算差值，并保留最小值（方法内全局变量）
         while (p < a.length && q < b.length) {
-            //差值，为了避免出现整形数据溢出例如：0 - （-2147483648） = 2147483648（本应等于）
-            //但是， 实际等于-2147483648。因为int类型的范围[-2147483648,2147483647]，出现了整形溢出现象。
-            long diff = (long) b[q] - a[p];
             //判断谁减谁（即，谁是被减数，谁是减数）
-            if (diff > 0) {//b - a
-                min = Math.min(min, diff);
+            if (b[q] >= a[p]) {//b - a
+                //差值，为了避免出现整形数据溢出例如：0 - （-2147483648） = 2147483648（本应等于）
+                //但是， 实际等于-2147483648。因为int类型的范围[-2147483648,2147483647]，出现了整形溢出现象。
+                min = Math.min(min, (long) b[q] - a[p]);
                 p++;//取a中下一个更大的值，减小diff
-            } else {       // a - b
-                diff = a[p] - b[q];
-                min = Math.min(min, diff);
+            } else {// a - b
+                min = Math.min(min, (long) a[p] - b[q]);
                 q++;//取b中下一个更大的值，减小diff
             }
         }
