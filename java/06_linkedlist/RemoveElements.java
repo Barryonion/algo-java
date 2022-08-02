@@ -38,7 +38,7 @@ public class RemoveElements {
         ListNode node3 = new ListNode(6,node4);
         ListNode node2 = new ListNode(2,node3);
         ListNode head = new ListNode(1, node2);
-        ListNode newLinked = solution.removeElements1(head, 6);
+        ListNode newLinked = solution.removeElements3(head, 6);
         while (newLinked != null) {
             System.out.println(newLinked.val);
             newLinked = newLinked.next;
@@ -79,6 +79,47 @@ public class RemoveElements {
         }
         return dummyHead.next;
     }
+
+    //开辟新的一个链表(包含虚拟节点)。遍历原链表，将不等于目标值的节点移动到新链表上
+    public ListNode removeElements2(ListNode head, int val) {
+        ListNode dummyHead = new ListNode();
+        ListNode tail = dummyHead;
+        ListNode p = head;
+        //遍历原链表
+        while (p != null) {
+            if (p.val != val) {
+                tail.next = p;
+                tail = tail.next;
+            }
+            p = p.next;
+        }
+        tail.next = p;
+        return dummyHead.next;
+    }
+
+    //zheng wang's solution
+    public ListNode removeElements3(ListNode head, int val) {
+        ListNode newHead = new ListNode();
+        ListNode tail = newHead;
+        ListNode p = head;
+        while (p != null) {
+            ListNode tmp = p.next;//处理前，先暂存下一个即将要遍历的元素
+            if (p.val != val) {
+                p.next = null;//为了将p插入新链表，并作为尾节点（next值为null）
+                tail.next = p;//将p插入新链表尾部
+                tail = p;     //tail指向新链表的新尾部
+            }
+            p = tmp;//考察原链表下一个元素
+        }
+        return newHead.next;
+    }
+
+
+
+
+
+
+
 
 
 }
