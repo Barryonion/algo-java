@@ -1,6 +1,5 @@
-package hashtable;
+package hashtable_18;
 
-import hashtable_18.RemoveDuplicateNodes;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
