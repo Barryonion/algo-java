@@ -63,4 +63,85 @@ class Solution {
     }
 
 
+    public ListNode reverseList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+
+        ListNode dummy = new ListNode(0);
+        ListNode p = head;
+        while (p != null) {
+            ListNode q = p.next;
+            p.next = dummy.next;
+            dummy.next = p;
+            p = q;
+        }
+        return dummy.next;
+    }
+
+    public ListNode reverseListRecursion(ListNode head) {
+        if (head == null) {
+            return  null;
+        }
+        if (head.next == null) {
+            return head;
+        }
+        ListNode newHead = reverseListRecursion(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
+    public double myPow(double x, int n) {
+        if (n >= 0) {
+            return rPow(x, n);
+        } else {
+            return 1 / (rPow(x, -1 * (n + 1)) * x);
+        }
+    }
+
+    private double rPow(double x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+        double halfPow = rPow(x, n / 2);
+        if (n % 2 == 1) {
+            return halfPow * halfPow * x;
+        } else {
+            return halfPow * halfPow;
+        }
+    }
+
+    public int multiply(int A, int B) {
+        // a个b相加
+        if (A == 1) {
+            return B;
+        }
+        int halfValue = multiply(A / 2, B);
+        if (A % 2 == 1) {
+            return halfValue + halfValue + B;
+        } else {
+            return halfValue + halfValue;
+        }
+    }
+
+    public int multiply1(int A, int B) {
+        int n = Math.min(A, B);
+        int k = Math.max(A, B);
+        if (n == 1) {
+            return k;
+        }
+        int halfValue = multiply1(n / 2, k);
+        if (n % 2 == 1) {
+            return halfValue + halfValue + k;
+        } else {
+            return halfValue + halfValue;
+        }
+    }
+
+
+
+
+
+
 }
